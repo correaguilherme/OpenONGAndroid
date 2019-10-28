@@ -1,10 +1,12 @@
-package com.br.senac.openongandroid;
+package com.br.senac.openongandroid.view;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
-public class MainActivity extends AppCompatActivity {
+import com.br.senac.openongandroid.R;
+
+public class ParceiroActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

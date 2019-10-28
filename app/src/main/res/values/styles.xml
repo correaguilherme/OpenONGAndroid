@@ -8,4 +8,58 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <style name="base">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginTop">5dp</item>
+        <item name="android:layout_marginBottom">5dp</item>
+    </style>
+
+    <style name="edit_text" parent="base">
+        <item name="android:padding">10dp</item>
+        <item name="android:layout_margin">5dp</item>
+    </style>
+
+    <style name="edit_text_lado_a_lado">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:padding">10dp</item>
+        <item name="android:layout_margin">5dp</item>
+    </style>
+
+    <style name="botao_lado_a_lado" parent="base">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_margin">5dp</item>
+        <item name="android:background">@color/colorPrimary</item>
+        <item name="android:textColor">#fff</item>
+    </style>
+
+    <style name="titulo" parent="base">
+        <item name="android:textSize">24sp</item>
+        <item name="android:textColor">#000</item>
+    </style>
+
+    <style name="textview" parent="base">
+        <item name="android:textSize">16sp</item>
+        <item name="android:textColor">#000</item>
+    </style>
+
+    <style name="texto_resultado" parent="base">
+        <item name="android:textSize">24sp</item>
+        <item name="android:textColor">#fff</item>
+    </style>
+
+    <style name="btn_sucesso" parent="base">
+        <item name="android:background">@color/colorPrimary</item>
+        <item name="android:textColor">#fff</item>
+    </style>
+
+    <style name="btn_dark" parent="base">
+        <item name="android:background">@color/colorPrimaryDark</item>
+        <item name="android:textColor">#fff</item>
+    </style>
+
 </resources>
