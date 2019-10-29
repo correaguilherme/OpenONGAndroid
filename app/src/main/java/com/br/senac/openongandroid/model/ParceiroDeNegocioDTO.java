@@ -1,7 +1,7 @@
 package com.br.senac.openongandroid.model;
 
 public class ParceiroDeNegocioDTO {
-
+    private Integer id;
     private String nome;
     private String email;
     private String telefone;
@@ -21,6 +21,14 @@ public class ParceiroDeNegocioDTO {
         this.cpf = cpf;
         this.site = site;
         this.observacoes = observacoes;
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     public String getNome() {
@@ -81,6 +89,7 @@ public class ParceiroDeNegocioDTO {
 
     public ParceiroDeNegocio getParceiroDeNegocio(){
         ParceiroDeNegocio p = new ParceiroDeNegocio();
+        p.setId(id);
         p.setNome(nome);
         p.setEmail(email);
         p.setTelefone(telefone);

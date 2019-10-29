@@ -1,7 +1,7 @@
 package com.br.senac.openongandroid.model;
 
 public class ParceiroDeNegocio {
-
+    private Integer id;
     private String nome;
     private String email;
     private String telefone;
@@ -21,6 +21,14 @@ public class ParceiroDeNegocio {
         this.cpf = cpf;
         this.site = site;
         this.observacoes = observacoes;
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     public String getNome() {
@@ -77,5 +85,10 @@ public class ParceiroDeNegocio {
 
     public void setObservacoes(String observacoes) {
         this.observacoes = observacoes;
+    }
+
+    @Override
+    public String toString() {
+        return id + " - " + nome + " (" + cpf + ")";
     }
 }
