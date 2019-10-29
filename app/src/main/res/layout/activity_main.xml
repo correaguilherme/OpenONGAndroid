@@ -13,7 +13,6 @@
         android:layout_height="wrap_content"
         android:text="Lista de Fornecedores"
         android:layout_marginTop="15dp"
-        android:id="@+id/tvContagem"
         />
 
     <ListView
