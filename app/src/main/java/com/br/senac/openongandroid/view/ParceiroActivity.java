@@ -8,6 +8,8 @@ import com.br.senac.openongandroid.R;
 
 public class ParceiroActivity extends AppCompatActivity {
 
+    
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
