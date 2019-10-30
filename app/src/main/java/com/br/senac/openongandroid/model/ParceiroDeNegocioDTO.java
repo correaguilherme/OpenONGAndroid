@@ -1,6 +1,8 @@
 package com.br.senac.openongandroid.model;
 
-public class ParceiroDeNegocioDTO {
+import java.io.Serializable;
+
+public class ParceiroDeNegocioDTO implements Serializable {
     private Integer id;
     private String nome;
     private String email;

@@ -1,13 +1,27 @@
 package com.br.senac.openongandroid.model;
 
-public class ParceiroDeNegocio {
+import com.j256.ormlite.field.DatabaseField;
+import com.j256.ormlite.table.DatabaseTable;
+
+import java.io.Serializable;
+
+@DatabaseTable
+public class ParceiroDeNegocio implements Serializable {
+    @DatabaseField(allowGeneratedIdInsert = true, generatedId = true)
     private Integer id;
+    @DatabaseField(canBeNull = false)
     private String nome;
+    @DatabaseField
     private String email;
+    @DatabaseField
     private String telefone;
+    @DatabaseField
     private String celular;
+    @DatabaseField
     private String cpf;
+    @DatabaseField
     private String site;
+    @DatabaseField
     private String observacoes;
 
     public ParceiroDeNegocio() {

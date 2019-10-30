@@ -119,6 +119,14 @@
         android:id="@+id/editObservacoes">
     </EditText>
 
+    <Button
+        style="@style/btn_dark"
+        android:onClick="enviar"
+        android:text="enviar" />
 
+    <Button
+        style="@style/btn_dark"
+        android:onClick="fechar"
+        android:text="fechar" />
 
 </LinearLayout>

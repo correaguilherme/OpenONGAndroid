@@ -4,9 +4,15 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ParceirosDTO implements Serializable {
+public class ParceiroDeNegocioListDTO implements Serializable {
 
     private List<ParceiroDeNegocioDTO> parceiros;
+
+    public ParceiroDeNegocioListDTO() { }
+
+    public ParceiroDeNegocioListDTO(List<ParceiroDeNegocioDTO> parceiros) {
+        this.parceiros = parceiros;
+    }
 
     public List<ParceiroDeNegocioDTO> getParceiros() {
         return parceiros;
@@ -18,8 +24,9 @@ public class ParceirosDTO implements Serializable {
 
     public List<ParceiroDeNegocio> getParceirosDeNegocio(){
         List<ParceiroDeNegocio> pns = new ArrayList<>();
-        for(ParceiroDeNegocioDTO pDTO : parceiros){
-            pns.add(pDTO.getParceiroDeNegocio());
+
+        for (ParceiroDeNegocioDTO pn: parceiros) {
+            pns.add(pn.getParceiroDeNegocio());
         }
         return pns;
     }
