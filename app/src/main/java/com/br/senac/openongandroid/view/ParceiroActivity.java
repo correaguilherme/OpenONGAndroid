@@ -19,9 +19,10 @@ public class ParceiroActivity extends AppCompatActivity {
     }
 
     public void enviar(View view) {
-        control.enviarAction();
+        control.salvarAction();
     }
 
-    public void fechar(View view) {
+    public void voltar(View view) {
+        control.voltarAction();
     }
 }

@@ -56,7 +56,7 @@ public class MainControl {
         });
     }
 
-    private void carregarParceiros() {
+    public void carregarParceiros() {
         AsyncHttpClient client = new AsyncHttpClient();
         String URL = "http://10.0.2.2:8084/backend/api/parceirodenegocio";
         client.get(URL, new AsyncHttpResponseHandler() {
@@ -105,32 +105,11 @@ public class MainControl {
                 e.printStackTrace();
             }
         }
-
-        try {
-            List<ParceiroDeNegocio> pns_ = pnDao.getDao().queryForAll();
-
-            System.out.println(pns_);
-
-            String teste = "";
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
     }
 
     private void openEditForm(ParceiroDeNegocio pn) {
         Intent it = new Intent(activity, ParceiroActivity.class);
         it.putExtra(Constantes.Parametros.PARCEIRO, pn);
         activity.startActivityForResult(it, Constantes.Request.PARCEIRO);
-    }
-
-    public void onActivityResult(int requestCode, int resultCode, Intent data) {
-
-        if (resultCode == activity.RESULT_OK) {
-            if (requestCode == Constantes.Request.PARCEIRO) {
-                adapterPn.notifyDataSetChanged();
-            }
-        } else if (resultCode == activity.RESULT_CANCELED) {
-            Toast.makeText(activity, "Ação cancelada!", Toast.LENGTH_SHORT).show();
-        }
     }
 }

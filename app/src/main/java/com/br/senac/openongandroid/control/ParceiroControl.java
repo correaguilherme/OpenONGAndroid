@@ -3,6 +3,7 @@ package com.br.senac.openongandroid.control;
 import android.app.Activity;
 import android.content.Intent;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.br.senac.openongandroid.R;
 import com.br.senac.openongandroid.dao.ParceiroDeNegocioDao;
@@ -11,15 +12,11 @@ import com.br.senac.openongandroid.util.Constantes;
 import com.br.senac.openongandroid.view.MainActivity;
 import com.google.gson.Gson;
 import com.loopj.android.http.AsyncHttpClient;
+import com.loopj.android.http.AsyncHttpResponseHandler;
 import com.loopj.android.http.RequestParams;
-import com.loopj.android.http.ResponseHandlerInterface;
-
-import java.io.IOException;
-import java.net.URI;
 import java.sql.SQLException;
 
 import cz.msebera.android.httpclient.Header;
-import cz.msebera.android.httpclient.HttpResponse;
 
 public class ParceiroControl {
     private Activity activity;
@@ -73,8 +70,10 @@ public class ParceiroControl {
         return pn;
     }
 
-    public void enviarAction() {
+    public void salvarAction() {
+
         getDadosForm();
+
         if (valida(pn)) {
 
             AsyncHttpClient client = new AsyncHttpClient();
@@ -82,104 +81,15 @@ public class ParceiroControl {
             Gson gson = new Gson();
             String json = gson.toJson(pn);
             RequestParams params = new RequestParams("dado", json);
-            client.put(URL, params, new ResponseHandlerInterface() {
+            client.put(URL, params, new AsyncHttpResponseHandler() {
                 @Override
-                public void sendResponseMessage(HttpResponse httpResponse) throws IOException {
-
+                public void onSuccess(int i, Header[] headers, byte[] bytes) {
+                    String teste = new String(bytes);
+                    Toast.makeText(activity, teste, Toast.LENGTH_SHORT).show();
                 }
 
                 @Override
-                public void sendStartMessage() {
-
-                }
-
-                @Override
-                public void sendFinishMessage() {
-
-                }
-
-                @Override
-                public void sendProgressMessage(long l, long l1) {
-
-                }
-
-                @Override
-                public void sendCancelMessage() {
-
-                }
-
-                @Override
-                public void sendSuccessMessage(int i, Header[] headers, byte[] bytes) {
-
-                }
-
-                @Override
-                public void sendFailureMessage(int i, Header[] headers, byte[] bytes, Throwable throwable) {
-
-                }
-
-                @Override
-                public void sendRetryMessage(int i) {
-
-                }
-
-                @Override
-                public URI getRequestURI() {
-                    return null;
-                }
-
-                @Override
-                public void setRequestURI(URI uri) {
-
-                }
-
-                @Override
-                public Header[] getRequestHeaders() {
-                    return new Header[0];
-                }
-
-                @Override
-                public void setRequestHeaders(Header[] headers) {
-
-                }
-
-                @Override
-                public boolean getUseSynchronousMode() {
-                    return false;
-                }
-
-                @Override
-                public void setUseSynchronousMode(boolean b) {
-
-                }
-
-                @Override
-                public boolean getUsePoolThread() {
-                    return false;
-                }
-
-                @Override
-                public void setUsePoolThread(boolean b) {
-
-                }
-
-                @Override
-                public void onPreProcessResponse(ResponseHandlerInterface responseHandlerInterface, HttpResponse httpResponse) {
-
-                }
-
-                @Override
-                public void onPostProcessResponse(ResponseHandlerInterface responseHandlerInterface, HttpResponse httpResponse) {
-
-                }
-
-                @Override
-                public Object getTag() {
-                    return null;
-                }
-
-                @Override
-                public void setTag(Object o) {
+                public void onFailure(int i, Header[] headers, byte[] bytes, Throwable throwable) {
 
                 }
             });
@@ -195,6 +105,11 @@ public class ParceiroControl {
             activity.setResult(activity.RESULT_OK, it);
             activity.finish();
         }
+    }
+
+    public void voltarAction() {
+        activity.setResult(activity.RESULT_CANCELED);
+        activity.finish();
     }
 
     private boolean valida(ParceiroDeNegocio pn) {

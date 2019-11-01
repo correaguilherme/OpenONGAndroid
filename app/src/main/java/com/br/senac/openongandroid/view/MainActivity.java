@@ -1,6 +1,5 @@
 package com.br.senac.openongandroid.view;
 
-import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -18,10 +17,9 @@ public class MainActivity extends AppCompatActivity {
         control = new MainControl(this);
     }
 
-
-
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-        control.onActivityResult(requestCode, resultCode, data);
+    @Override
+    protected void onResume() {
+        super.onResume();
+        control.carregarParceiros();
     }
 }
