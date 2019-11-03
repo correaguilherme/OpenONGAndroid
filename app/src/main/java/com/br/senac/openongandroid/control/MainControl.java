@@ -27,7 +27,6 @@ public class MainControl {
     private Activity activity;
     private ListView lvPn;
     private ArrayAdapter<ParceiroDeNegocio> adapterPn;
-    private List<ParceiroDeNegocio> listPns;
 
     private ParceiroDeNegocio pn;
     private ParceiroDeNegocioDao pnDao;
@@ -78,7 +77,7 @@ public class MainControl {
 
                 ParceiroDeNegocioListDTO pnsDTO = new Gson().fromJson(pnsJSON, ParceiroDeNegocioListDTO.class);
 
-                carregarListView(pnsDTO.getParceirosDeNegocio());
+                carregarListView(pnsDTO.getParceirosDeNegocio().getParceiros());
             }
 
             @Override
@@ -89,18 +88,27 @@ public class MainControl {
     }
 
     private void carregarListView(List<ParceiroDeNegocio> pns) {
-        adapterPn = new ArrayAdapter<>(activity, android.R.layout.simple_list_item_1, pns);
+
+        adicionaPnBancoAndroid(pns);
+
+        try {
+            List<ParceiroDeNegocio> pnsOrm = pnDao.getDao().queryForAll();
+            adapterPn = new ArrayAdapter<>(activity, android.R.layout.simple_list_item_1, pnsOrm);
+        } catch (SQLException e) {
+            adapterPn = new ArrayAdapter<>(activity, android.R.layout.simple_list_item_1, pns);
+        }
+
         lvPn.setAdapter(adapterPn);
 
-        adcionaPnBancoAndroid(pns);
+        adapterPn.notifyDataSetChanged();
 
         cliqueCurto();
     }
 
-    private void adcionaPnBancoAndroid(List<ParceiroDeNegocio> pns) {
+    private void adicionaPnBancoAndroid(List<ParceiroDeNegocio> pns) {
         for (ParceiroDeNegocio pn : pns) {
             try {
-                pnDao.getDao().createIfNotExists(pn);
+                pnDao.getDao().createOrUpdate(pn);
             } catch (SQLException e) {
                 e.printStackTrace();
             }

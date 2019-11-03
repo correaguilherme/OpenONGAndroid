@@ -22,12 +22,17 @@ public class ParceiroDeNegocioListDTO implements Serializable {
         this.parceiros = parceiros;
     }
 
-    public List<ParceiroDeNegocio> getParceirosDeNegocio(){
+    public ParceiroDeNegocioList getParceirosDeNegocio(){
+        ParceiroDeNegocioList pnlist = new ParceiroDeNegocioList();
+
         List<ParceiroDeNegocio> pns = new ArrayList<>();
 
         for (ParceiroDeNegocioDTO pn: parceiros) {
             pns.add(pn.getParceiroDeNegocio());
         }
-        return pns;
+
+        pnlist.setParceiros(pns);
+
+        return pnlist;
     }
 }

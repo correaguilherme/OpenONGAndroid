@@ -12,7 +12,7 @@ import java.sql.SQLException;
 
 public class MyORMLiteHelper extends OrmLiteSqliteOpenHelper {
     private static final String DATABASE_NAME = "parceirodenegocio.db";
-    private static final int DATABASE_VERSION = 1;
+    private static final int DATABASE_VERSION = 2;
 
 
     public MyORMLiteHelper(Context c) {

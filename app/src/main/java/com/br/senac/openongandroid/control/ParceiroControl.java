@@ -14,6 +14,7 @@ import com.google.gson.Gson;
 import com.loopj.android.http.AsyncHttpClient;
 import com.loopj.android.http.AsyncHttpResponseHandler;
 import com.loopj.android.http.RequestParams;
+
 import java.sql.SQLException;
 
 import cz.msebera.android.httpclient.Header;
@@ -84,8 +85,10 @@ public class ParceiroControl {
             client.put(URL, params, new AsyncHttpResponseHandler() {
                 @Override
                 public void onSuccess(int i, Header[] headers, byte[] bytes) {
-                    String teste = new String(bytes);
-                    Toast.makeText(activity, teste, Toast.LENGTH_SHORT).show();
+                    String retorno = new String(bytes);
+
+                    if (retorno == "true")
+                        Toast.makeText(activity, "Parceiro atualizado com sucesso", Toast.LENGTH_LONG).show();
                 }
 
                 @Override
@@ -96,8 +99,7 @@ public class ParceiroControl {
 
             try {
                 pnDao.getDao().update(pn);
-            } catch (SQLException e) {
-            }
+            } catch (SQLException e) { }
 
             Intent it = new Intent(activity, MainActivity.class);
 
