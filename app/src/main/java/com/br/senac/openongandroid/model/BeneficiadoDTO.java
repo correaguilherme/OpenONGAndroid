@@ -2,7 +2,7 @@ package com.br.senac.openongandroid.model;
 
 import java.io.Serializable;
 
-public class ParceiroDeNegocioDTO implements Serializable {
+public class BeneficiadoDTO implements Serializable {
     private Integer id;
     private String nome;
     private String email;
@@ -12,10 +12,10 @@ public class ParceiroDeNegocioDTO implements Serializable {
     private String site;
     private String observacoes;
 
-    public ParceiroDeNegocioDTO() {
+    public BeneficiadoDTO() {
     }
 
-    public ParceiroDeNegocioDTO(String nome, String email, String telefone, String celular, String cpf, String site) {
+    public BeneficiadoDTO(String nome, String email, String telefone, String celular, String cpf, String site) {
         this.nome = nome;
         this.email = email;
         this.telefone = telefone;
@@ -88,8 +88,8 @@ public class ParceiroDeNegocioDTO implements Serializable {
         this.observacoes = observacoes;
     }
 
-    public ParceiroDeNegocio getParceiroDeNegocio(){
-        ParceiroDeNegocio p = new ParceiroDeNegocio();
+    public Beneficiado getBeneficiado(){
+        Beneficiado p = new Beneficiado();
         p.setId(id);
         p.setNome(nome);
         p.setEmail(email);

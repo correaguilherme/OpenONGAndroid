@@ -9,21 +9,33 @@
     tools:context=".view.MainActivity">
 
     <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text=""
-        android:layout_marginTop="15dp"
-        />
-
-    <TextView
         style="@style/titulo"
         android:text="@string/listapn"
         />
 
-    <ListView
-        android:id="@+id/lvParceiros"
+
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:divider="#990000"
-        android:dividerHeight="2dp"></ListView>
+        android:orientation="horizontal">
+
+        <Button
+            style="@style/btn_dark"
+            android:onClick="enviar"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="@string/salvar" />
+
+        <Button
+            style="@style/btn_dark"
+            android:onClick="voltar"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="@string/voltar" />
+    </LinearLayout>
+
 </LinearLayout>

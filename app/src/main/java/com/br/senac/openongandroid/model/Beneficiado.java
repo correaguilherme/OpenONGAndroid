@@ -1,21 +1,31 @@
 package com.br.senac.openongandroid.model;
 
+import com.j256.ormlite.field.DatabaseField;
+import com.j256.ormlite.table.DatabaseTable;
+
 import java.io.Serializable;
 
-public class ParceiroDeNegocioDTO implements Serializable {
+@DatabaseTable
+public class Beneficiado implements Serializable {
+    @DatabaseField(allowGeneratedIdInsert = true, generatedId = true)
     private Integer id;
+    @DatabaseField(canBeNull = false)
     private String nome;
+    @DatabaseField
     private String email;
+    @DatabaseField
     private String telefone;
+    @DatabaseField
     private String celular;
+    @DatabaseField
     private String cpf;
+    @DatabaseField
     private String site;
-    private String observacoes;
 
-    public ParceiroDeNegocioDTO() {
+    public Beneficiado() {
     }
 
-    public ParceiroDeNegocioDTO(String nome, String email, String telefone, String celular, String cpf, String site) {
+    public Beneficiado(String nome, String email, String telefone, String celular, String cpf, String site) {
         this.nome = nome;
         this.email = email;
         this.telefone = telefone;
@@ -80,24 +90,8 @@ public class ParceiroDeNegocioDTO implements Serializable {
         this.site = site;
     }
 
-    public String getObservacoes() {
-        return observacoes;
+    @Override
+    public String toString() {
+        return id + " - " + nome + " (" + cpf + ")";
     }
-
-    public void setObservacoes(String observacoes) {
-        this.observacoes = observacoes;
-    }
-
-    public ParceiroDeNegocio getParceiroDeNegocio(){
-        ParceiroDeNegocio p = new ParceiroDeNegocio();
-        p.setId(id);
-        p.setNome(nome);
-        p.setEmail(email);
-        p.setTelefone(telefone);
-        p.setCelular(celular);
-        p.setCpf(cpf);
-        p.setSite(site);
-        return p;
-    }
-
 }

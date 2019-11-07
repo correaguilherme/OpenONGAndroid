@@ -21,20 +21,17 @@ public class ParceiroDeNegocio implements Serializable {
     private String cpf;
     @DatabaseField
     private String site;
-    @DatabaseField
-    private String observacoes;
 
     public ParceiroDeNegocio() {
     }
 
-    public ParceiroDeNegocio(String nome, String email, String telefone, String celular, String cpf, String site, String observacoes) {
+    public ParceiroDeNegocio(String nome, String email, String telefone, String celular, String cpf, String site) {
         this.nome = nome;
         this.email = email;
         this.telefone = telefone;
         this.celular = celular;
         this.cpf = cpf;
         this.site = site;
-        this.observacoes = observacoes;
     }
 
     public Integer getId() {
@@ -91,14 +88,6 @@ public class ParceiroDeNegocio implements Serializable {
 
     public void setSite(String site) {
         this.site = site;
-    }
-
-    public String getObservacoes() {
-        return observacoes;
-    }
-
-    public void setObservacoes(String observacoes) {
-        this.observacoes = observacoes;
     }
 
     @Override

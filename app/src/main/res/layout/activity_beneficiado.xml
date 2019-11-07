@@ -6,12 +6,12 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:padding="16dp"
-    tools:context=".view.ParceiroActivity">
+    tools:context=".view.BeneficiadoActivity">
 
     <TextView
-        android:id="@+id/txtParceiro"
+        android:id="@+id/txtBeneficiado"
         style="@style/titulo"
-        android:text="@string/tituloPn"
+        android:text="@string/tituloBn"
         />
 
     <TextView

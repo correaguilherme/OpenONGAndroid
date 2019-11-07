@@ -3,6 +3,7 @@ package com.br.senac.openongandroid.dao.helpers;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 
+import com.br.senac.openongandroid.model.Beneficiado;
 import com.br.senac.openongandroid.model.ParceiroDeNegocio;
 import com.j256.ormlite.android.apptools.OrmLiteSqliteOpenHelper;
 import com.j256.ormlite.support.ConnectionSource;
@@ -24,6 +25,7 @@ public class MyORMLiteHelper extends OrmLiteSqliteOpenHelper {
     public void onCreate(SQLiteDatabase sqLiteDatabase, ConnectionSource connectionSource) {
         try {
             TableUtils.createTable(connectionSource, ParceiroDeNegocio.class);
+            TableUtils.createTable(connectionSource, Beneficiado.class);
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -33,6 +35,7 @@ public class MyORMLiteHelper extends OrmLiteSqliteOpenHelper {
     public void onUpgrade(SQLiteDatabase sqLiteDatabase, ConnectionSource connectionSource, int i, int i1) {
         try {
             TableUtils.dropTable(connectionSource, ParceiroDeNegocio.class, true);
+            TableUtils.dropTable(connectionSource, Beneficiado.class, true);
 
         } catch (SQLException e) {
             e.printStackTrace();

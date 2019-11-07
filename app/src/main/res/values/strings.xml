@@ -1,14 +1,15 @@
 <resources>
     <string name="app_name">Parceiro de Negócio</string>
-    <string name="titulo">Editar Parceiro de Negócio</string>
+    <string name="tituloPn">Editar Parceiro de Negócio</string>
+    <string name="tituloBn">Editar Beneficiado</string>
     <string name="nome">Nome</string>
     <string name="email">E-mail</string>
     <string name="telefone">Telefone</string>
     <string name="celular">Celular</string>
     <string name="cpf">CPF</string>
     <string name="site">Site</string>
-    <string name="observacoes">Observações</string>
     <string name="salvar">salvar</string>
     <string name="voltar">voltar</string>
     <string name="listapn">Lista de Parceiros de negócio</string>
+    <string name="listabn">Lista de Beneficiados</string>
 </resources>

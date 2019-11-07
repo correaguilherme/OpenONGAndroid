@@ -9,7 +9,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".view.ParceiroActivity"></activity>
+        <activity android:name=".view.BeneficiadoListActivity"></activity>
+        <activity android:name=".view.ParceiroListActivity" />
+        <activity android:name=".view.BeneficiadoActivity" />
+        <activity android:name=".view.ParceiroActivity" />
         <activity android:name=".view.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

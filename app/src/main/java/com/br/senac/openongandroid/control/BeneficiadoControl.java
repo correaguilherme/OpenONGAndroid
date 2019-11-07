@@ -6,8 +6,8 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.br.senac.openongandroid.R;
-import com.br.senac.openongandroid.dao.ParceiroDeNegocioDao;
-import com.br.senac.openongandroid.model.ParceiroDeNegocio;
+import com.br.senac.openongandroid.dao.BeneficiadoDao;
+import com.br.senac.openongandroid.model.Beneficiado;
 import com.br.senac.openongandroid.util.Constantes;
 import com.br.senac.openongandroid.view.MainActivity;
 import com.google.gson.Gson;
@@ -19,33 +19,33 @@ import java.sql.SQLException;
 
 import cz.msebera.android.httpclient.Header;
 
-public class ParceiroControl {
+public class BeneficiadoControl {
     private Activity activity;
-    private ParceiroDeNegocio pn;
+    private Beneficiado bn;
     private EditText editNome;
     private EditText editEmail;
     private EditText editTelefone;
     private EditText editCelular;
     private EditText editCPF;
     private EditText editSite;
-    private ParceiroDeNegocioDao pnDao;
+    private BeneficiadoDao bnDao;
 
-    public ParceiroControl(Activity activity) {
+    public BeneficiadoControl(Activity activity) {
         this.activity = activity;
-        this.pn = new ParceiroDeNegocio();
-        pnDao = new ParceiroDeNegocioDao(activity);
+        this.bn = new Beneficiado();
+        bnDao = new BeneficiadoDao(activity);
         initComponent();
         carregaForm();
     }
 
     private void carregaForm() {
-        pn = (ParceiroDeNegocio) activity.getIntent().getSerializableExtra(Constantes.Parametros.PARCEIRO);
-        editNome.setText(pn.getNome());
-        editEmail.setText(pn.getEmail());
-        editTelefone.setText(pn.getTelefone());
-        editCelular.setText(pn.getCelular());
-        editCPF.setText(pn.getCpf());
-        editSite.setText(pn.getSite());
+        bn = (Beneficiado) activity.getIntent().getSerializableExtra(Constantes.Parametros.BENEFICIADO);
+        editNome.setText(bn.getNome());
+        editEmail.setText(bn.getEmail());
+        editTelefone.setText(bn.getTelefone());
+        editCelular.setText(bn.getCelular());
+        editCPF.setText(bn.getCpf());
+        editSite.setText(bn.getSite());
     }
 
     private void initComponent() {
@@ -57,26 +57,26 @@ public class ParceiroControl {
         editSite = activity.findViewById(R.id.editSite);
     }
 
-    private ParceiroDeNegocio getDadosForm() {
-        pn.setNome(editNome.getText().toString());
-        pn.setEmail(editEmail.getText().toString());
-        pn.setTelefone(editTelefone.getText().toString());
-        pn.setCelular(editCelular.getText().toString());
-        pn.setCpf(editCPF.getText().toString());
-        pn.setSite(editSite.getText().toString());
-        return pn;
+    private Beneficiado getDadosForm() {
+        bn.setNome(editNome.getText().toString());
+        bn.setEmail(editEmail.getText().toString());
+        bn.setTelefone(editTelefone.getText().toString());
+        bn.setCelular(editCelular.getText().toString());
+        bn.setCpf(editCPF.getText().toString());
+        bn.setSite(editSite.getText().toString());
+        return bn;
     }
 
     public void salvarAction() {
 
         getDadosForm();
 
-        if (valida(pn)) {
+        if (valida(bn)) {
 
             AsyncHttpClient client = new AsyncHttpClient();
-            String URL = "http://10.0.2.2:8084/backend/api/parceirodenegocio/" + pn.getId();
+            String URL = "http://10.0.2.2:8084/backend/api/beneficiado/" + bn.getId();
             Gson gson = new Gson();
-            String json = gson.toJson(pn);
+            String json = gson.toJson(bn);
             RequestParams params = new RequestParams("dado", json);
             client.put(URL, params, new AsyncHttpResponseHandler() {
                 @Override
@@ -84,7 +84,7 @@ public class ParceiroControl {
                     String retorno = new String(bytes);
 
                     if (retorno == "true")
-                        Toast.makeText(activity, "Parceiro atualizado com sucesso", Toast.LENGTH_LONG).show();
+                        Toast.makeText(activity, "Beneficiado atualizado com sucesso", Toast.LENGTH_LONG).show();
                 }
 
                 @Override
@@ -94,12 +94,12 @@ public class ParceiroControl {
             });
 
             try {
-                pnDao.getDao().update(pn);
+                bnDao.getDao().update(bn);
             } catch (SQLException e) { }
 
             Intent it = new Intent(activity, MainActivity.class);
 
-            it.putExtra(Constantes.Parametros.PARCEIRO, pn);
+            it.putExtra(Constantes.Parametros.BENEFICIADO, bn);
             activity.setResult(activity.RESULT_OK, it);
             activity.finish();
         }
@@ -110,7 +110,7 @@ public class ParceiroControl {
         activity.finish();
     }
 
-    private boolean valida(ParceiroDeNegocio pn) {
+    private boolean valida(Beneficiado bn) {
         return true;
     }
 }
