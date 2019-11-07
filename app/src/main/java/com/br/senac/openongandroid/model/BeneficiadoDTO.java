@@ -96,7 +96,6 @@ public class BeneficiadoDTO implements Serializable {
         p.setTelefone(telefone);
         p.setCelular(celular);
         p.setCpf(cpf);
-        p.setSite(site);
         return p;
     }
 

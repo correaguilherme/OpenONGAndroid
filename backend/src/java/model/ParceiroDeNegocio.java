@@ -24,8 +24,6 @@ public class ParceiroDeNegocio implements Serializable {
     private String celular;
     @Column(length = 30)
     private String cpf;
-    @Lob
-    private String observacoes;
     @Column(length = 200)
     private String site;
 
@@ -34,13 +32,12 @@ public class ParceiroDeNegocio implements Serializable {
     public ParceiroDeNegocio() {
     }
 
-    public ParceiroDeNegocio(String nome, String email, String telefone, String celular, String cpf, String observacoes, String site, String cnpj) {
+    public ParceiroDeNegocio(String nome, String email, String telefone, String celular, String cpf, String site) {
         this.nome = nome;
         this.email = email;
         this.telefone = telefone;
         this.celular = celular;
         this.cpf = cpf;
-        this.observacoes = observacoes;
         this.site = site;
     }
 
@@ -98,13 +95,5 @@ public class ParceiroDeNegocio implements Serializable {
 
     public void setSite(String site) {
         this.site = site;
-    }
-
-    public String getObservacoes() {
-        return observacoes;
-    }
-
-    public void setObservacoes(String observacoes) {
-        this.observacoes = observacoes;
     }
 }

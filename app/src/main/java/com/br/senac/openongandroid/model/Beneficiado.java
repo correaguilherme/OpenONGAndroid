@@ -19,19 +19,16 @@ public class Beneficiado implements Serializable {
     private String celular;
     @DatabaseField
     private String cpf;
-    @DatabaseField
-    private String site;
 
     public Beneficiado() {
     }
 
-    public Beneficiado(String nome, String email, String telefone, String celular, String cpf, String site) {
+    public Beneficiado(String nome, String email, String telefone, String celular, String cpf) {
         this.nome = nome;
         this.email = email;
         this.telefone = telefone;
         this.celular = celular;
         this.cpf = cpf;
-        this.site = site;
     }
 
     public Integer getId() {
@@ -80,14 +77,6 @@ public class Beneficiado implements Serializable {
 
     public void setCpf(String cpf) {
         this.cpf = cpf;
-    }
-
-    public String getSite() {
-        return site;
-    }
-
-    public void setSite(String site) {
-        this.site = site;
     }
 
     @Override

@@ -1,6 +1,7 @@
 package com.br.senac.openongandroid.view;
 
 import android.os.Bundle;
+import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -17,6 +18,9 @@ public class ParceiroListActivity extends AppCompatActivity {
         control = new ParceiroListControl(this);
     }
 
+    public void Voltar(View view) {
+        control.voltarAction();
+    }
 
     @Override
     protected void onResume() {

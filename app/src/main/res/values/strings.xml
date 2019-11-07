@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Parceiro de Negócio</string>
+    <string name="app_name">[OPEN ONG] Parceiros e beneficiados</string>
     <string name="tituloPn">Editar Parceiro de Negócio</string>
     <string name="tituloBn">Editar Beneficiado</string>
     <string name="nome">Nome</string>
@@ -12,4 +12,6 @@
     <string name="voltar">voltar</string>
     <string name="listapn">Lista de Parceiros de negócio</string>
     <string name="listabn">Lista de Beneficiados</string>
+    <string name="btPrincipalPn">Parceiros de negócio</string>
+    <string name="btPrincipalBn">Beneficiados</string>
 </resources>

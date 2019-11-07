@@ -120,4 +120,9 @@ public class ParceiroListControl {
         it.putExtra(Constantes.Parametros.PARCEIRO, pn);
         activity.startActivityForResult(it, Constantes.Request.PARCEIRO);
     }
+
+    public void voltarAction() {
+        activity.setResult(activity.RESULT_CANCELED);
+        activity.finish();
+    }
 }

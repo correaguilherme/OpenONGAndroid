@@ -45,7 +45,6 @@ public class BeneficiadoControl {
         editTelefone.setText(bn.getTelefone());
         editCelular.setText(bn.getCelular());
         editCPF.setText(bn.getCpf());
-        editSite.setText(bn.getSite());
     }
 
     private void initComponent() {
@@ -63,7 +62,6 @@ public class BeneficiadoControl {
         bn.setTelefone(editTelefone.getText().toString());
         bn.setCelular(editCelular.getText().toString());
         bn.setCpf(editCPF.getText().toString());
-        bn.setSite(editSite.getText().toString());
         return bn;
     }
 

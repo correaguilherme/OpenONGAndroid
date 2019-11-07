@@ -5,37 +5,24 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:gravity="center"
     android:padding="16dp"
     tools:context=".view.MainActivity">
 
-    <TextView
-        style="@style/titulo"
-        android:text="@string/listapn"
-        />
-
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
+    <Button
+            style="@style/btn_dark"
+            android:onClick="abrirParceiro"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="@string/btPrincipalPn" />
 
         <Button
             style="@style/btn_dark"
-            android:onClick="enviar"
-            android:layout_weight="1"
-            android:layout_width="0dp"
+            android:onClick="abrirBeneficiado"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            android:text="@string/salvar" />
-
-        <Button
-            style="@style/btn_dark"
-            android:onClick="voltar"
-            android:layout_weight="1"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:text="@string/voltar" />
-    </LinearLayout>
+            android:text="@string/btPrincipalBn" />
 
 </LinearLayout>

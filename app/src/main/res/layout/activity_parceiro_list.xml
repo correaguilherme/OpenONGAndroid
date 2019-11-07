@@ -13,10 +13,20 @@
         android:text="@string/listapn"
         />
 
+    <Button
+        style="@style/btn_dark"
+        android:onClick="Voltar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="@string/voltar" />
+
     <ListView
         android:id="@+id/lvParceiros"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:divider="#990000"
         android:dividerHeight="2dp"></ListView>
+
+
 </LinearLayout>

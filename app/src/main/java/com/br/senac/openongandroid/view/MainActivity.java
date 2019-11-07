@@ -18,9 +18,11 @@ public class MainActivity extends AppCompatActivity {
         control = new MainControl(this);
     }
 
-    public void enviar(View view) {
+    public void abrirBeneficiado(View view) {
+        control.BeneficiadoAction();
     }
 
-    public void voltar(View view) {
+    public void abrirParceiro(View view) {
+        control.ParceiroAction();
     }
 }

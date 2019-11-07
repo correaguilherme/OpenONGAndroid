@@ -120,4 +120,9 @@ public class BeneficiadoListControl {
         it.putExtra(Constantes.Parametros.BENEFICIADO, bn);
         activity.startActivityForResult(it, Constantes.Request.BENEFICIADO);
     }
+
+    public void voltarAction() {
+        activity.setResult(activity.RESULT_CANCELED);
+        activity.finish();
+    }
 }

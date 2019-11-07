@@ -8,7 +8,6 @@ import javax.persistence.metamodel.StaticMetamodel;
 @StaticMetamodel(ParceiroDeNegocio.class)
 public abstract class ParceiroDeNegocio_ {
 
-	public static volatile SingularAttribute<ParceiroDeNegocio, String> observacoes;
 	public static volatile SingularAttribute<ParceiroDeNegocio, String> telefone;
 	public static volatile SingularAttribute<ParceiroDeNegocio, String> site;
 	public static volatile SingularAttribute<ParceiroDeNegocio, String> cpf;

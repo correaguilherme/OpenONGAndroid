@@ -1,5 +1,6 @@
 package dao.base;
 
+import model.Beneficiado;
 import model.ParceiroDeNegocio;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -14,6 +15,7 @@ public class HibernateUtil {
         try {
             Configuration cfg = new Configuration();
             cfg.addAnnotatedClass(ParceiroDeNegocio.class);
+            cfg.addAnnotatedClass(Beneficiado.class);
             
             cfg.configure("/dao/base/hibernate.cfg.xml");
             StandardServiceRegistryBuilder build

@@ -89,21 +89,6 @@
         android:id="@+id/editCpf">
     </EditText>
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        style="@style/textview"
-        android:text="@string/site">
-    </TextView>
-
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:padding="8dp"
-        android:hint="@string/site"
-        android:id="@+id/editSite">
-    </EditText>
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
